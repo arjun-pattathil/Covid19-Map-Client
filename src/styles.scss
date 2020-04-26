@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+background-color: whitesmoke;}
+.component-wrapper {
+    padding: 2%;
+    height: 92%;
+    overflow: auto;
+  }
+  .date {
+    display: flex;
+  } 
+
+      
+label {
+    color: black; // black;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .mat-select-content{
+    width:2000px !important;
+    background-color: red !important;
+    font-size: 10px !important;
+  } 
+  .mat-select {
+    /* display: inline-block; */
+    width: 59% !important;
+    outline: 0 !important;
+    background-color: #d6cece !important;
+}

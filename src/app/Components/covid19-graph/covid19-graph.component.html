@@ -1,0 +1,46 @@
+<ngx-spinner></ngx-spinner>
+<div class="component-wrapper">
+    <form [formGroup]="reportFormGroup">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="country" class="required-label">Country : </label>
+                <mat-select (selectionChange)="getData()" formControlName="country">
+                    <mat-option value="All" style="color: #3f51b5">
+                        All
+                    </mat-option>
+                    <mat-option *ngFor="let country of countries" [value]="country" style="color: #3f51b5">
+                        {{country}}
+                    </mat-option>
+                </mat-select>
+            </div>
+            <div class="col-md-6">
+                <label for="date" class="required-label">Date : </label>
+                <mat-select (selectionChange)="getData()" formControlName="date">
+                    <mat-option value="Latest" style="color: #3f51b5">
+                        Latest
+                    </mat-option>
+                    <mat-option *ngFor="let date of dates" [value]="date" style="color: #3f51b5">
+                        {{date}}
+                    </mat-option>
+                </mat-select>
+            </div>
+        </div>
+    </form>
+    <div class="row" id="total">
+        <div class="col-md-2"></div>
+        <div class="col-md-3">
+            <span> Confirmed:{{totalConfirmed | number: '.0'}}</span>
+        </div>
+        <div class="col-md-3">
+            <span> Deaths:{{totalDeath | number: '.0'}}</span>
+        </div>
+        <div class="col-md-3">
+            <span> Mortality Rate:{{(totalDeath/totalConfirmed)*100 | number:'1.2-2'}}%</span>
+        </div>
+    </div>
+    <div>
+        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+            [legend]="barChartLegend" [chartType]="barChartType">
+        </canvas>
+    </div>
+</div>
